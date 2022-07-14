@@ -120,7 +120,7 @@ Plan hash value: 304083712
 |   2 |   INDEX FULL SCAN  | SYS_C007081 |     4 |   100 |     2   (0)| 00:00:01 |
 |*  3 |   TABLE ACCESS HASH| EMP         |     4 |   100 |            |          |
 ----------------------------------------------------------------------------------
- /*
+ */
 
 DROP TABLE emp;
 DROP TABLE DEPT;
