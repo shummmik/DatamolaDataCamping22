@@ -1,9 +1,12 @@
-CREATE cluster emp_dept_cluster( deptno NUMBER( 2 ) )
-    SIZE 1024 
-    STORAGE( INITIAL 100K NEXT 50K );
+# Task 4
 
-CREATE INDEX idxcl_emp_dept on cluster emp_dept_cluster;
-commit;
+```sql
+create cluster hash_emp_dept_cluster
+( deptno NUMBER( 2 ) )
+ hashkeys 100
+ size 500
+ STORAGE( INITIAL 10K NEXT 5K );
+
 
 CREATE TABLE dept
   (
@@ -11,7 +14,7 @@ CREATE TABLE dept
   , dname  VARCHAR2( 14 )
   , loc    VARCHAR2( 13 )
   )
-  cluster emp_dept_cluster ( deptno ) ;
+  cluster hash_emp_dept_cluster ( deptno ) ;
  
  CREATE TABLE emp
   (
@@ -24,7 +27,7 @@ CREATE TABLE dept
   , comm   NUMBER
   , deptno NUMBER( 2 ) REFERENCES dept( deptno )
   )
-  cluster emp_dept_cluster ( deptno ) ;
+  cluster hash_emp_dept_cluster ( deptno ) ;
 commit;
 
 INSERT INTO dept VALUES (10, 'ACCOUNTING', 'NEW YORK');
@@ -68,6 +71,23 @@ SELECT *
   )
 ORDER BY deptno;
 
+--  DEPT_BLK|EMP_BLK|FLAG|DEPTNO|
+----------+-------+----+------+
+--      36|     36|    |    10|
+--      36|     36|    |    10|
+--      36|     36|    |    10|
+--      35|     35|    |    20|
+--      35|     35|    |    20|
+--      35|     35|    |    20|
+--      35|     35|    |    20|
+--      35|     35|    |    20|
+--      35|     35|    |    30|
+--      35|     35|    |    30|
+--      35|     35|    |    30|
+--      35|     35|    |    30|
+--      35|     35|    |    30|
+--      35|     35|    |    30|
+
 EXPLAIN PLAN FOR
 SELECT *
    FROM
@@ -89,7 +109,26 @@ ORDER BY deptno;
 
 SELECT * FROM table (DBMS_XPLAN.DISPLAY(format => 'ADVANCED'));
 
+/*
+Plan hash value: 304083712
+ 
+----------------------------------------------------------------------------------
+| Id  | Operation          | Name        | Rows  | Bytes | Cost (%CPU)| Time     |
+----------------------------------------------------------------------------------
+|   0 | SELECT STATEMENT   |             |    14 |   700 |     2   (0)| 00:00:01 |
+|   1 |  NESTED LOOPS      |             |    14 |   700 |     2   (0)| 00:00:01 |
+|   2 |   INDEX FULL SCAN  | SYS_C007081 |     4 |   100 |     2   (0)| 00:00:01 |
+|*  3 |   TABLE ACCESS HASH| EMP         |     4 |   100 |            |          |
+----------------------------------------------------------------------------------
+ /*
+
 DROP TABLE emp;
 DROP TABLE DEPT;
-DROP CLUSTER emp_dept_cluster;
+DROP CLUSTER hash_emp_dept_cluster;
 commit;
+
+```
+Вывод:
+Результат данного примера отображает факт того, что строки разных таблиц
+ находятся в одном block. За исключением, в hash cluster строки складываются в block в соответствии с результатом хеш-функции?
+ что дает прирост в производительности запроса.
