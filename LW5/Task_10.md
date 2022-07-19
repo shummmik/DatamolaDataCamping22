@@ -131,7 +131,7 @@
                 <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
             </td>
             <td style="width: 105.5pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
-                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+/-</span></p>
+                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
             </td>
         </tr>
         <tr>
@@ -145,10 +145,10 @@
                 <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
             </td>
             <td style="width: 92.95pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
-                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
+                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+/-</span></p>
             </td>
             <td style="width: 105.5pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
-                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">-</span></p>
+                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+/-</span></p>
             </td>
         </tr>
         <tr>
@@ -204,7 +204,7 @@
                 <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
             </td>
             <td style="width: 105.5pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in 5.4pt;vertical-align: top;">
-                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+/-</span></p>
+                <p style='margin:0in;margin-bottom:.0001pt;text-align:center;font-size:16px;font-family:"Cambria",serif;'><span style="font-size:29px;">+</span></p>
             </td>
         </tr>
     </tbody>
@@ -212,5 +212,5 @@
 
 На данной ЛР практически опробовали различные варианты join таблиц 
 применяя к ним возможные операции применимые для множеств. Разобрали инструмент
-принудительного формирования плана (SELECT /* ____*/). Изучили особенности работы joins 
+принудительного формирования плана (SELECT /* ____ */). Изучили особенности работы joins 
 c различными таблицами по объему и дополнительными условиями, в виде индексов.
