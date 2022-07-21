@@ -93,17 +93,12 @@ ALTER USER u_dw_ext_references QUOTA UNLIMITED ON ts_references_ext_data_01;
 @".\u_dw_ext_references\reload_languages_refs.sql";
 
 
-
-
-
  
 
 select * from U_DW_REFERENCES.cu_lng_scopes;
 select * from U_DW_REFERENCES.cu_lng_types;
 select * from U_DW_REFERENCES.cu_languages;
-
-
-
-
+select * from U_DW_REFERENCES.t_localizations;
+select * from U_DW_REFERENCES.w_lng_links;
 
 

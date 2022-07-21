@@ -559,35 +559,27 @@ exec pkg_load_ext_ref_geography.load_lnk_cntr2groups;
 
 
 
+select * from cls_geo_countries_iso3166;
+select * from cls_geo_countries2_iso3166;
+select * from w_countries;
+select * from vl_countries;
+select * from cls_geo_structure_iso3166;
+select * from cls_cntr2structure_iso3166;
+select * from w_geo_systems;
+select * from vl_geo_systems;
+select * from w_geo_parts;
+select * from vl_geo_parts;
+select * from w_geo_regions;
+select * from vl_geo_regions;
+select * from cls_cntr_grouping_iso3166;
+select * from cls_cntr2grouping_iso3166;
+select * from w_cntr_group_systems;
+select * from vl_cntr_group_systems;
+select * from w_cntr_groups;
+select * from vl_cntr_groups;
+select * from w_cntr_sub_groups;
+select * from vl_cntr_sub_groups;
+select * from w_geo_object_links;
 
-select * from t_addresses;
-select * from t_address_types;
-
-select * from t_cntr_group_systems;
-select * from lc_cntr_group_systems;
-
-select * from t_cntr_groups;
-select * from lc_cntr_groups;
-
-select * from t_cntr_sub_groups;
-select * from lc_cntr_sub_groups;
-
-select * from t_countries;
-select * from lc_countries;
-
-select * from t_geo_object_links;
-
-select * from t_geo_objects;
-
-select * from t_geo_parts;
-select * from lc_geo_parts;
-
-select * from t_geo_regions;
-select * from lc_geo_regions;
-
-select * from t_geo_systems;
-select * from lc_geo_systems;
-
-select * from t_geo_types;
 
 
