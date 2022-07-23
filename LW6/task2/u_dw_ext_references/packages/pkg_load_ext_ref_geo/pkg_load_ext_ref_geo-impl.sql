@@ -8,10 +8,10 @@ AS
    AS
    BEGIN
       --truncate cleansing tables
-      EXECUTE IMMEDIATE 'TRUNCATE TABLE CLS_GEO_COUNTRIES_ISO3166';
+      EXECUTE IMMEDIATE 'TRUNCATE TABLE u_dw_ext_references.cls_geo_countries_iso3166';
 
       --Extract data
-      INSERT INTO cls_geo_countries_iso3166 ( country_id
+      INSERT INTO u_dw_ext_references.cls_geo_countries_iso3166 ( country_id
                                             , country_desc
                                             , country_code )
          SELECT country_id
@@ -29,10 +29,10 @@ AS
    AS
    BEGIN
       --truncate cleansing tables
-      EXECUTE IMMEDIATE 'TRUNCATE TABLE CLS_GEO_COUNTRIES2_ISO3166';
+      EXECUTE IMMEDIATE 'TRUNCATE TABLE u_dw_ext_references.cls_geo_countries2_iso3166';
 
       --Extract data
-      INSERT INTO cls_geo_countries2_iso3166 ( country_desc
+      INSERT INTO u_dw_ext_references.cls_geo_countries2_iso3166 ( country_desc
                                              , country_code )
          SELECT country_desc
               , country_code
@@ -48,12 +48,12 @@ AS
    BEGIN
       --Delete old values
       DELETE FROM u_dw_references.w_countries trg
-            WHERE trg.country_id NOT IN (     SELECT DISTINCT country_id FROM cls_geo_countries_iso3166);
+            WHERE trg.country_id NOT IN (     SELECT DISTINCT country_id FROM u_dw_ext_references.cls_geo_countries_iso3166);
 
       --Merge Source data
       MERGE INTO u_dw_references.w_countries trg
            USING (  SELECT DISTINCT country_id
-                      FROM cls_geo_countries_iso3166
+                      FROM u_dw_ext_references.cls_geo_countries_iso3166
                   ORDER BY country_id) cls
               ON ( trg.country_id = cls.country_id )
       WHEN NOT MATCHED THEN
@@ -81,7 +81,7 @@ AS
                                          , UPPER ( src.country_desc ) || '%' look_country_desc
                                          , src.country_code AS country_code_alpha3
                                       FROM u_dw_references.w_countries trg
-                                         , cls_geo_countries_iso3166 src
+                                         , u_dw_ext_references.cls_geo_countries_iso3166 src
                                      WHERE src.country_id(+) = trg.country_id) trg
                                  , (SELECT NULL AS geo_id
                                          , NULL AS country_id
@@ -89,7 +89,7 @@ AS
                                          , src2.country_desc AS look_country_desc
                                          , NULL AS country_code_alpha3
                                          , src2.country_code AS country_code_alpha2
-                                      FROM cls_geo_countries2_iso3166 src2) lkp
+                                      FROM u_dw_ext_references.cls_geo_countries2_iso3166 src2) lkp
                              WHERE lkp.look_country_desc(+) LIKE trg.look_country_desc
                             UNION ALL
                             SELECT trg.geo_id
@@ -105,7 +105,7 @@ AS
                                          , UPPER ( src.country_desc ) look_country_desc
                                          , src.country_code AS country_code_alpha3
                                       FROM u_dw_references.w_countries trg
-                                         , cls_geo_countries_iso3166 src
+                                         , u_dw_ext_references.cls_geo_countries_iso3166 src
                                      WHERE src.country_id(+) = trg.country_id) trg
                                  , (SELECT NULL AS geo_id
                                          , NULL AS country_id
@@ -122,7 +122,7 @@ AS
                                               AS look_country_desc
                                          , NULL AS country_code_alpha3
                                          , src2.country_code AS country_code_alpha2
-                                      FROM cls_geo_countries2_iso3166 src2) lkp
+                                      FROM u_dw_ext_references.cls_geo_countries2_iso3166 src2) lkp
                              WHERE trg.look_country_desc(+) LIKE lkp.look_country_desc)
                      WHERE country_id IS NOT NULL
                   GROUP BY country_desc
