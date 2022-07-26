@@ -34,7 +34,7 @@
                 <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:"Arial",sans-serif;'>T_YEARS</span><span style='font-size:13px;font-family:"Arial",sans-serif;'>&nbsp;</span></p>
             </td>
             <td style="width: 106.95pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in;height: 56.25pt;vertical-align: top;">
-                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:"Arial",sans-serif;'>Предназначена для трансформации формата&nbsp;</span><span style='font-size:13px;font-family:  "Arial",sans-serif;'>timestamp</span><span style='font-size:13px;font-family:"Arial",sans-serif;'>&nbsp;в различные временные признаки</span></p>
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:"Arial",sans-serif;'>Предназначена для трансформации формата&nbsp;</span><span style='font-size:13px;font-family:  "Arial",sans-serif;'>timestamp</span><span style='font-size:13px;font-family:  "Arial",sans-serif;'>&nbsp;в различные временные признаки</span></p>
             </td>
         </tr>
         <tr>
@@ -104,7 +104,8 @@
                 <p style='margin-top:0in;margin-right:5.25pt;margin-bottom:.0001pt;margin-left:5.25pt;text-align:center;line-height:normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:"Arial",sans-serif;'>SMALL</span></p>
             </td>
             <td style="width: 136.4pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in;height: 56.25pt;vertical-align: top;">
-                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:  "Arial",sans-serif;'>T_SUBSCRIPTIONS</span></p>
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:  "Arial",sans-serif;'>T_SUBSCRIPTIONS,</span></p>
+                <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:  "Arial",sans-serif;'>T_SUBSCRIPTIONS_NAME</span></p>
             </td>
             <td style="width: 106.95pt;border-top: none;border-left: none;border-bottom: 1pt solid windowtext;border-right: 1pt solid windowtext;padding: 0in;height: 56.25pt;vertical-align: top;">
                 <p style='margin-top:0in;margin-right:0in;margin-bottom:.0001pt;margin-left:0in;text-align:justify;line-height:  normal;font-size:19px;font-family:"Cambria",serif;vertical-align:baseline;'><span style='font-size:13px;font-family:"Arial",sans-serif;'>Предназначена для хранения информации <span style="color:#333333;">о вариантах подписки и периода их актуальности</span></span></p>
