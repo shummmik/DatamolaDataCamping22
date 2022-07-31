@@ -61,11 +61,21 @@ alter table U_DW_SUBSTRICTIONS.T_SUBSCRIPTIONS_USER_F
 alter table U_DW_PERSONS.T_USER
    drop constraint FK_T_USER_REFERENCE_T_ADDRES;
 
+drop table u_dw_references.DIM_TIME cascade constraints;
+
+drop table U_DW_PERSONS.W_SAL_CL_USERS_BUYER cascade constraints;
+
+drop table U_DW_PERSONS.SAL_DW_CL_USERS_BUYER cascade constraints;
+
+drop table U_DW_PERSONS.SAL_DW_CL_USERS_SELLER cascade constraints;
+
 drop table U_DW_PRODUCTS.DIM_PRODUCTS cascade constraints;
 
 drop table U_DW_SUBSTRICTIONS.DIM_SUBSCRIPTIONS cascade constraints;
 
-drop table U_DW_PERSONS.DIM_USERS cascade constraints;
+drop table U_DW_PERSONS.DIM_SELLERS cascade constraints;
+
+drop table U_DW_PERSONS.DIM_BUYERS cascade constraints;
 
 drop table U_DW_PERSONS.T_ADDRESS cascade constraints;
 
@@ -125,7 +135,7 @@ start U_DW_SUBSTRICTIONS.sql;
 
 -- start T_COUNTRIES.sql;
 
-
+start DIM_TIME.sql;
 
 start T_CURRENCY.sql;
 
@@ -143,7 +153,9 @@ GRANT REFERENCES ON U_DW_REFERENCES.T_ADDRESSES TO U_DW_PERSONS;
 
 start T_USER.sql;
 
-start DIM_USERS.sql;
+start DIM_SELLERS.sql;
+
+start DIM_BUYERS.sql;
 
 GRANT REFERENCES ON U_DW_PERSONS.T_USER TO U_DW_AUCTIONS;
 
@@ -171,5 +183,5 @@ start DIM_SUBSCRIPTIONS.sql;
 
 start T_SUBSCRIPTIONS_USER_F.sql;
 
-
+GRANT REFERENCES ON U_DW_AUCTIONS.T_AUCTIONS_F TO U_DW_PERSONS;
 

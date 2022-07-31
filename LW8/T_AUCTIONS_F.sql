@@ -21,6 +21,7 @@ create table U_DW_AUCTIONS.T_AUCTIONS_F (
    BUYER                NUMBER(22),
    ID_CURRENCY          NUMBER,
    DESCRIPTION          VARCHAR2(250),
+   COMPLETE             SMALLINT             default 0,
    constraint PK_T_AUCTIONS_F primary key (ID_AUCTION)
 )
    tablespace TS_AUCTION_DATA_01;
@@ -32,18 +33,6 @@ alter table U_DW_AUCTIONS.T_AUCTIONS_F
 alter table U_DW_AUCTIONS.T_AUCTIONS_F
    add constraint FK_T_AUCTIO_T_USER_SELLER foreign key (SELLER)
       references U_DW_PERSONS.T_USER (ID_USER);
-
-alter table U_DW_AUCTIONS.T_AUCTIONS_F
-   add constraint FK_T_AUCTIO_FK_T_PROD_DIM_PROD foreign key (ID_PROD)
-      references U_DW_PRODUCTS.DIM_PRODUCTS (ID_PROD);
-
-alter table U_DW_AUCTIONS.T_AUCTIONS_F
-   add constraint FK_T_AUCTIO_FK_T_USER_DIM_USER foreign key (BUYER)
-      references U_DW_PERSONS.DIM_USERS (ID_USER);
-
-alter table U_DW_AUCTIONS.T_AUCTIONS_F
-   add constraint FK_T_AUCTIONS_T_USER_DIM_USER foreign key (SELLER)
-      references U_DW_PERSONS.DIM_USERS (ID_USER);
 
 alter table U_DW_AUCTIONS.T_AUCTIONS_F
    add constraint FK_T_AUCTIO_REFERENCE_T_CURREN foreign key (ID_CURRENCY)

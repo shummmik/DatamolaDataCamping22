@@ -26,7 +26,7 @@ drop table u_dw_ext_references.CLS_CALENDAR cascade constraints;
   TABLESPACE TS_REFERENCES_EXT_DATA_01 ;
   
 --------------------------------------------DAY
-drop table u_dw_ext_references.T_DAYS cascade constraints;
+drop table u_dw_references.T_DAYS cascade constraints;
 
 CREATE TABLE u_dw_references.T_DAYS
 (
