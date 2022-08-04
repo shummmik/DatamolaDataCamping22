@@ -15,8 +15,6 @@ create table U_DW_AUCTIONS.T_AUCTIONS_F (
    DURATION             INTEGER,
    START_COST           FLOAT,
    COST                 FLOAT,
-   CURRENCY             CHAR(10),
-   SHORT_NAME_CURRENCY  VARCHAR2(10),
    SELLER               NUMBER(22),
    BUYER                NUMBER(22),
    ID_CURRENCY          NUMBER,

@@ -1,3 +1,7 @@
+
+
+
+
 create table PART_EXAMPLE 
 (
    ID_EVENT             numeric                        not null,
@@ -431,3 +435,9 @@ INSERT INTO u_dw_ext_references.CLS_CALENDAR parallel 10
                 ,BEG_OF_CAL_YEAR 
                 ,END_OF_CAL_YEAR
            FROM u_dw_ext_references.CLS_CALENDAR;
+           
+           
+           
+           
+true
+TRUE

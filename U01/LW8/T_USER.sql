@@ -14,7 +14,6 @@ create table U_DW_PERSONS.T_USER (
    S_NAME               CHAR(100),
    PHONE                CHAR(15),
    EMAIL                CHAR(50),
-   ID_ADDRESS           CHAR(200),
    DATE_REG             TIMESTAMP,
    IMAGE                VARCHAR2(200),
    constraint PK_T_USER primary key (ID_USER)
