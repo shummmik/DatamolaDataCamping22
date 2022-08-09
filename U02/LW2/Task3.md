@@ -1,0 +1,220 @@
+# Task 3
+
+```sql
+
+ SELECT TO_CHAR(MAKE_DTM, 'D')  AS DAY_WEEK,
+        TO_CHAR(MAKE_DTM, 'DD')  AS DAY_MOUNTH,
+        COUNT(*) COUNT,
+        grouping( TO_CHAR(MAKE_DTM, 'D')) day_week,
+        decode(grouping_id(TO_CHAR(MAKE_DTM, 'D'), TO_CHAR(MAKE_DTM, 'DD')), 3, 'All',
+                                                                            2, 'all_for_month',
+                                                                            1, 'all_for_week',
+                                                                            'month-week') cube
+        FROM U_DW_AUCTIONS.T_BETS_F
+        GROUP BY cube(
+            TO_CHAR(MAKE_DTM, 'DD'),
+            TO_CHAR(MAKE_DTM, 'D')
+            );             
+--DAY_WEEK|DAY_MOUNTH|COUNT  |DAY_WEEK|CUBE         |
+----------+----------+-------+--------+-------------+
+--        |          |6987853|       1|All          |
+--1       |          | 999131|       0|all_for_week |
+--2       |          | 998543|       0|all_for_week |
+--3       |          | 998113|       0|all_for_week |
+--4       |          | 997199|       0|all_for_week |
+--5       |          | 997766|       0|all_for_week |
+--6       |          | 998391|       0|all_for_week |
+--7       |          | 998710|       0|all_for_week |
+--        |01        | 230738|       1|all_for_month|
+--1       |01        |  25564|       0|month-week   |
+--2       |01        |  34236|       0|month-week   |
+--3       |01        |  41200|       0|month-week   |
+--4       |01        |  39112|       0|month-week   |
+--5       |01        |  24882|       0|month-week   |
+--6       |01        |  41047|       0|month-week   |
+--7       |01        |  24697|       0|month-week   |
+--        |02        | 230090|       1|all_for_month|
+--1       |02        |  24812|       0|month-week   |
+--2       |02        |  25466|       0|month-week   |
+--3       |02        |  33792|       0|month-week   |
+--4       |02        |  41144|       0|month-week   |
+--5       |02        |  39372|       0|month-week   |
+--6       |02        |  24592|       0|month-week   |
+--7       |02        |  40912|       0|month-week   |
+--        |03        | 230391|       1|all_for_month|
+--1       |03        |  40907|       0|month-week   |
+--2       |03        |  24541|       0|month-week   |
+--3       |03        |  25478|       0|month-week   |
+--4       |03        |  33637|       0|month-week   |
+--5       |03        |  41383|       0|month-week   |
+--6       |03        |  39647|       0|month-week   |
+--7       |03        |  24798|       0|month-week   |
+--        |04        | 229837|       1|all_for_month|
+--1       |04        |  24500|       0|month-week   |
+--2       |04        |  40902|       0|month-week   |
+--3       |04        |  24657|       0|month-week   |
+--4       |04        |  25194|       0|month-week   |
+--5       |04        |  33633|       0|month-week   |
+--6       |04        |  40985|       0|month-week   |
+--7       |04        |  39966|       0|month-week   |
+--        |05        | 229785|       1|all_for_month|
+--1       |05        |  40392|       0|month-week   |
+--2       |05        |  24499|       0|month-week   |
+--3       |05        |  40978|       0|month-week   |
+--4       |05        |  24702|       0|month-week   |
+--5       |05        |  25273|       0|month-week   |
+--6       |05        |  33194|       0|month-week   |
+--7       |05        |  40747|       0|month-week   |
+--        |06        | 229818|       1|all_for_month|
+--1       |06        |  40677|       0|month-week   |
+--2       |06        |  40561|       0|month-week   |
+--3       |06        |  24744|       0|month-week   |
+--4       |06        |  40822|       0|month-week   |
+--5       |06        |  24400|       0|month-week   |
+--6       |06        |  25382|       0|month-week   |
+--7       |06        |  33232|       0|month-week   |
+--        |07        | 229804|       1|all_for_month|
+--1       |07        |  33363|       0|month-week   |
+--2       |07        |  40653|       0|month-week   |
+--3       |07        |  40843|       0|month-week   |
+--4       |07        |  24669|       0|month-week   |
+--5       |07        |  40716|       0|month-week   |
+--6       |07        |  24359|       0|month-week   |
+--7       |07        |  25201|       0|month-week   |
+--        |08        | 229832|       1|all_for_month|
+--1       |08        |  25054|       0|month-week   |
+--2       |08        |  33201|       0|month-week   |
+--3       |08        |  40733|       0|month-week   |
+--4       |08        |  40937|       0|month-week   |
+--5       |08        |  24771|       0|month-week   |
+--6       |08        |  40654|       0|month-week   |
+--7       |08        |  24482|       0|month-week   |
+--        |09        | 229610|       1|all_for_month|
+--1       |09        |  24405|       0|month-week   |
+--2       |09        |  25020|       0|month-week   |
+--3       |09        |  33342|       0|month-week   |
+--4       |09        |  40569|       0|month-week   |
+--5       |09        |  40860|       0|month-week   |
+--6       |09        |  24614|       0|month-week   |
+--7       |09        |  40800|       0|month-week   |
+--        |10        | 229588|       1|all_for_month|
+--1       |10        |  40892|       0|month-week   |
+--2       |10        |  24487|       0|month-week   |
+--3       |10        |  24813|       0|month-week   |
+--4       |10        |  33189|       0|month-week   |
+--5       |10        |  40421|       0|month-week   |
+--6       |10        |  41109|       0|month-week   |
+--7       |10        |  24677|       0|month-week   |
+--        |11        | 228927|       1|all_for_month|
+--1       |11        |  24546|       0|month-week   |
+--2       |11        |  40774|       0|month-week   |
+--3       |11        |  24274|       0|month-week   |
+--4       |11        |  24813|       0|month-week   |
+--5       |11        |  33290|       0|month-week   |
+--6       |11        |  40240|       0|month-week   |
+--7       |11        |  40990|       0|month-week   |
+--        |12        | 229589|       1|all_for_month|
+--1       |12        |  41074|       0|month-week   |
+--2       |12        |  24637|       0|month-week   |
+--3       |12        |  40829|       0|month-week   |
+--4       |12        |  24415|       0|month-week   |
+--5       |12        |  24835|       0|month-week   |
+--6       |12        |  33285|       0|month-week   |
+--7       |12        |  40514|       0|month-week   |
+--        |13        | 229364|       1|all_for_month|
+--1       |13        |  40532|       0|month-week   |
+--2       |13        |  40715|       0|month-week   |
+--3       |13        |  24596|       0|month-week   |
+--4       |13        |  40832|       0|month-week   |
+--5       |13        |  24578|       0|month-week   |
+--6       |13        |  24931|       0|month-week   |
+--7       |13        |  33180|       0|month-week   |
+--        |14        | 229754|       1|all_for_month|
+--1       |14        |  33061|       0|month-week   |
+--2       |14        |  40457|       0|month-week   |
+--3       |14        |  40748|       0|month-week   |
+--4       |14        |  24725|       0|month-week   |
+--5       |14        |  40994|       0|month-week   |
+--6       |14        |  24597|       0|month-week   |
+--7       |14        |  25172|       0|month-week   |
+--        |15        | 229900|       1|all_for_month|
+--1       |15        |  25137|       0|month-week   |
+--2       |15        |  32974|       0|month-week   |
+--3       |15        |  40977|       0|month-week   |
+--4       |15        |  40631|       0|month-week   |
+--5       |15        |  24637|       0|month-week   |
+--6       |15        |  40863|       0|month-week   |
+--7       |15        |  24681|       0|month-week   |
+--        |16        | 229589|       1|all_for_month|
+--1       |16        |  24520|       0|month-week   |
+--2       |16        |  25113|       0|month-week   |
+--3       |16        |  32863|       0|month-week   |
+--4       |16        |  40969|       0|month-week   |
+--5       |16        |  40763|       0|month-week   |
+--6       |16        |  24637|       0|month-week   |
+--7       |16        |  40724|       0|month-week   |
+--        |17        | 228945|       1|all_for_month|
+--1       |17        |  40111|       0|month-week   |
+--2       |17        |  24472|       0|month-week   |
+--3       |17        |  25049|       0|month-week   |
+--4       |17        |  32830|       0|month-week   |
+--5       |17        |  40800|       0|month-week   |
+--6       |17        |  40978|       0|month-week   |
+--7       |17        |  24705|       0|month-week   |
+--        |18        | 228358|       1|all_for_month|
+--1       |18        |  24507|       0|month-week   |
+--2       |18        |  39788|       0|month-week   |
+--3       |18        |  24233|       0|month-week   |
+--4       |18        |  24925|       0|month-week   |
+--5       |18        |  32797|       0|month-week   |
+--6       |18        |  41126|       0|month-week   |
+--7       |18        |  40982|       0|month-week   |
+--        |19        | 228089|       1|all_for_month|
+--1       |19        |  41286|       0|month-week   |
+--2       |19        |  24585|       0|month-week   |
+--3       |19        |  39243|       0|month-week   |
+--4       |19        |  24154|       0|month-week   |
+--5       |19        |  24775|       0|month-week   |
+--6       |19        |  32932|       0|month-week   |
+--7       |19        |  41114|       0|month-week   |
+--        |20        | 228504|       1|all_for_month|
+--1       |20        |  41051|       0|month-week   |
+--2       |20        |  41431|       0|month-week   |
+--3       |20        |  24480|       0|month-week   |
+--4       |20        |  38743|       0|month-week   |
+--5       |20        |  24294|       0|month-week   |
+--6       |20        |  25653|       0|month-week   |
+--7       |20        |  32852|       0|month-week   |
+--        |21        | 229087|       1|all_for_month|
+--1       |21        |  33074|       0|month-week   |
+--2       |21        |  41148|       0|month-week   |
+--3       |21        |  41345|       0|month-week   |
+--4       |21        |  24630|       0|month-week   |
+--5       |21        |  38182|       0|month-week   |
+--6       |21        |  24430|       0|month-week   |
+--7       |21        |  26278|       0|month-week   |
+--        |22        | 229181|       1|all_for_month|
+--1       |22        |  26811|       0|month-week   |
+--2       |22        |  33018|       0|month-week   |
+--3       |22        |  41210|       0|month-week   |
+--4       |22        |  41526|       0|month-week   |
+--5       |22        |  24585|       0|month-week   |
+--6       |22        |  37689|       0|month-week   |
+--7       |22        |  24342|       0|month-week   |
+--        |23        | 229129|       1|all_for_month|
+--1       |23        |  24551|       0|month-week   |
+--2       |23        |  27514|       0|month-week   |
+--3       |23        |  32897|       0|month-week   |
+--4       |23        |  41222|       0|month-week   |
+--5       |23        |  41100|       0|month-week   |
+--6       |23        |  24685|       0|month-week   |
+--7       |23        |  37160|       0|month-week   |
+--        |24        | 229416|       1|all_for_month|
+--1       |24        |  36768|       0|month-week   |
+--2       |24        |  24576|       0|month-week   |
+--3       |24        |  28044|       0|month-week   |
+--4       |24        |  32597|       0|month-week   |
+--5       |24        |  41496|       0|month-week   |
+--6       |24        |  41425|       0|month-week   |
+--7       |24        |  24510|       0|month-week   |
+```
