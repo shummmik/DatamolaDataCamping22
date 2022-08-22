@@ -1,6 +1,4 @@
-#Task 1
 
-```sql
 create or replace PACKAGE                     U_DW_PRODUCTS.pkg_ELT_DIM_PRODUCTS
 AS  
    PROCEDURE LOAD_DIM_PRODUCTS;
@@ -93,11 +91,7 @@ AS
 
 END pkg_ELT_DIM_PRODUCTS;
 
-```
 
-![Table](t1.png "Table")
-
-```sql
 
 create or replace PACKAGE                     U_DW_SUBSTRICTIONS.pkg_ELT_DIM_SUBSCRIPTIONS
 AS  
@@ -167,12 +161,8 @@ AS
    END LOAD_DIM_SUBSCRIPTIONS;
 
 END pkg_ELT_DIM_SUBSCRIPTIONS;
-```
-
-![Table](t2.png "Table")
 
 
-```SQL
 
 create or replace PACKAGE                     U_DW_PERSONS.pkg_ELT_DIM_PERSONS
 AS  
@@ -267,6 +257,3 @@ END ;
 
 EXEC  U_DW_PERSONS.pkg_ELT_DIM_PERSONS.LOAD_DIM_BUYERS;
 EXEC  U_DW_PERSONS.pkg_ELT_DIM_PERSONS.LOAD_DIM_SELLERS;  
-```
-
-![Table](t3.png "Table")
