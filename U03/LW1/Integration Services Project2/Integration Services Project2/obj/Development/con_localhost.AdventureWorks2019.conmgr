@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="localhost.AdventureWorks2019"
+  DTS:DTSID="{BE6D254A-D134-408C-A706-212C80B815BE}"
+  DTS:CreationName="ODBC">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectionString="server=localhost;Driver={SQL Server};trusted_connection=Yes;app=Microsoft® Visual Studio®;wsid=AL;database=AdventureWorks2019;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
