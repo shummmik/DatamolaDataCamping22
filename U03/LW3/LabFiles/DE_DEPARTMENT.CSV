@@ -1,0 +1,8 @@
+EmployeeID,FirstName,LastName,JobTitle,EmailAddress,City,StateProvinceName,CountryRegionName
+1,FirstName,LastName,Application Specialist,walter1@adventure-works.com,Berlin,Saarland,Germany
+2,Andrew,Cencini,Database Administrator,patrick3@adventure-works.com,Offenbach,Bayern,Germany
+3,Stacey,Cereghino,Application Specialist,kimberly2@adventure-works.com,Frankfurt am Main,Hessen,Germany
+4,Baris,Cetinok,Vice President of Sales,ajay0@adventure-works.com,Stuttgart,Hamburg,Germany
+5,Sean,Chai,North American Sales Manager,parul0@adventure-works.com,Hamburg,Nordrhein-Westfalen,Germany
+6,Pat,Chambers,Sales Representative,tomas0@adventure-works.com,Salzgitter,Brandenburg,Germany
+7,Forrest,Chandler,Pacific Sales Manager,kathy0@adventure-works.com,Hamburg,Saxony,Germany
